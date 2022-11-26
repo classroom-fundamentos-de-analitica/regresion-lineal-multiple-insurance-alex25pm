@@ -87,11 +87,11 @@ def pregunta_03():
             # variables categóricas, y no aplica ninguna transformación al resto de
             # las variables.
             (
-                "column_transfomer",
+                "Transformador",
                 make_column_transformer(
                     (
                         OneHotEncoder(),
-                        make_column_selector(dtype_include=object),,
+                        make_column_selector(dtype_include=object),
                     ),
                     remainder="passthrough",
                 ),
@@ -99,7 +99,7 @@ def pregunta_03():
             # Paso 2: Construya un selector de características que seleccione las K
             # características más importantes. Utilice la función f_regression.
             (
-                "selectKBest",
+                "SeleccionarK",
                 SelectKBest(score_func=f_regression),
             ),
             # Paso 3: Construya un modelo de regresión lineal.
@@ -111,7 +111,7 @@ def pregunta_03():
     )
 
     # Cargua de las variables.
-    X_train, _, y_train, _ = pregunta_02()
+    X_train, useless, y_train, useless2 = pregunta_02()
 
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
